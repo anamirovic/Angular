@@ -1,0 +1,94 @@
+{
+    "books":[
+        {
+            "id":1,
+            "title":"1984",
+            "author": "George Orwell",
+            "price":8,
+            "viewsCount": 1000,
+            "link":"",
+            "imageurl":"../../../assets/1984.jpg"
+        },
+        {
+            "id": 2,
+            "title": "To Kill a Mockingbird",
+            "author": "Harper Lee",
+            "price": 10,
+            "viewsCount": 850,
+            "link": "",
+            "imageurl":"../../../assets/to_kill_a_mocking_bird.jpg"
+          },
+          {
+            "id": 3,
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "price": 12,
+            "viewsCount": 750,
+            "link": "",
+            "imageurl":"../../../assets/the_great_gatsby.jpg"
+          },
+          {
+            "id": 4,
+            "title": "Pride and Prejudice",
+            "author": "Jane Austen",
+            "price": 9,
+            "viewsCount": 900,
+            "link": "",
+            "imageurl":"../../../assets/pride_and_prejudice.jpg"
+          },
+          {
+            "id": 5,
+            "title": "The Catcher in the Rye",
+            "author": "J.D. Salinger",
+            "price": 11,
+            "viewsCount": 800,
+            "link": "",
+            "imageurl":"../../../assets/the_catcher_in_the_rye.jpg"
+          },
+          {
+            "id": 6,
+            "title": "Lord of the Flies",
+            "author": "William Golding",
+            "price": 13,
+            "viewsCount": 700,
+            "link": "",
+            "imageurl":"../../../assets/lord_of_the_flies.jpg"
+          },
+          {
+            "id": 7,
+            "title": "Brave New World",
+            "author": "Aldous Huxley",
+            "price": 10,
+            "viewsCount": 950,
+            "link": "",
+            "imageurl":"../../../assets/brave_new_world.jpg"
+          },
+          {
+            "id": 8,
+            "title": "Moby-Dick",
+            "author": "Herman Melville",
+            "price": 15,
+            "viewsCount": 600,
+            "link": "",
+            "imageurl":"../../../assets/moby_dick.jpg"
+          },
+          {
+            "id": 9,
+            "title": "The Hobbit",
+            "author": "J.R.R. Tolkien",
+            "price": 14,
+            "viewsCount": 1100,
+            "link": "",
+            "imageurl":"../../../assets/the_hobbit.jpg"
+          },
+          {
+            "id": 10,
+            "title": "The Shining",
+            "author": "Stephen King",
+            "price": 12,
+            "viewsCount": 950,
+            "link": "",
+            "imageurl":"../../../assets/the_shining.jpg"
+          }
+    ]
+}

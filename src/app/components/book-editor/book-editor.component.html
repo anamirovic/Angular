@@ -1,0 +1,7 @@
+<span *ngIf="book">
+<h2>{{book.title}}</h2>
+<h4>{{book.author}}</h4>
+<p>{{book.viewsCount}}</p>
+<p>Selected book Id: {{book.id}}</p>
+<img [src]="book.imageurl" alt="Slika knjige" class="book-image">
+</span>
