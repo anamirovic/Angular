@@ -3,5 +3,10 @@
 <h4>{{book.author}}</h4>
 <p>{{book.viewsCount}}</p>
 <p>Selected book Id: {{book.id}}</p>
+<p>
+    <button (click)="like()">Like</button>
+    <button (click)="dislike()">Dislike</button>
+    <span>Rating: {{rating()}}</span>
+</p>
 <img [src]="book.imageurl" alt="Slika knjige" class="book-image">
 </span>

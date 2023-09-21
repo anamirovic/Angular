@@ -1,16 +1,24 @@
 import { createReducer, on} from '@ngrx/store';
 import {Book} from '../models/book';
 import * as Actions from './book.action';
+import { EntityState, createEntityAdapter } from '@ngrx/entity';
 
-export interface BooksState{
-    list: Book[];
+
+export interface BooksState extends EntityState<Book>{
     selectedBook: number;
 }
 
-export const initialState: BooksState={
-    list: [],
-    selectedBook:0,
-};
+// export interface BooksState2{
+//     ids: string[],
+//     entities:{},
+//     selectedBook: number
+// }
+
+const adapter = createEntityAdapter<Book>();
+
+export const initialState: BooksState = adapter.getInitialState({
+  selectedBook: 0,
+});
 
 export const booksReducer = createReducer(
     initialState,
@@ -20,10 +28,19 @@ export const booksReducer = createReducer(
             selectedBook: bookId,
         };
     }),
-    on(Actions.loadBooksSuccess,(state,{ books })=>{
-        return{
-            ...state,
-            list: books,
-        };
-    })
+    on(Actions.loadBooksSuccess,(state,{ books })=>
+        adapter.setAll(books,state)
+    ),
+    on(Actions.rateBook, (state, { bookId, rating }) =>
+    adapter.updateOne(
+      {
+        id: bookId,
+        changes: {
+          rating,
+        },
+      },
+      state
+    )
+    )
+  
 );

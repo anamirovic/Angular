@@ -7,10 +7,17 @@ export const selectBooksFeature = createSelector(
   (books) => books
 );
 
-export const selectBooksList = createSelector(
+export const selectBookIds = createSelector(
     selectBooksFeature,
-    (books) => books.list
+    (books) => books.ids
   );
+
+  export const selectBooksList = createSelector(selectBooksFeature, (books) =>
+  books.ids
+    .map((id) => books.entities[id])
+    .filter((book) => book != null)
+    .map((book) => <Book>book)
+);
 
   export const selectSelectedBookId = createSelector(
     selectBooksFeature,
@@ -18,7 +25,7 @@ export const selectBooksList = createSelector(
   );
   
   export const selectSelectedBook = createSelector(
-    selectBooksList,
+    selectBooksFeature,
     selectSelectedBookId,
-    (books, bookId) => books.find((book) => book.id === bookId)
+    (books, bookId) => books.entities[bookId]
   );

@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
-import { Book } from 'src/app/models/book';
+import { Book, BookRating } from 'src/app/models/book';
+import { rateBook } from 'src/app/store/book.action';
 import { BooksState } from 'src/app/store/book.reducer';
 import { selectBooksFeature, selectSelectedBook } from 'src/app/store/book.selector';
 
@@ -43,7 +44,8 @@ export class BookEditorComponent implements OnInit {
       "price": 12,
       "viewsCount": 950,
       "link": "7GjOOyBoELw",
-      "imageurl":"../../../assets/the_shining.jpg"
+      "imageurl":"../../../assets/the_shining.jpg",
+      rating:BookRating.None,
     };
   }
 
@@ -66,40 +68,40 @@ export class BookEditorComponent implements OnInit {
 
   }
 
-  // rating(): string {
-  //   if (this.song) {
-  //     switch (this.song.rating) {
-  //       case SongRating.Like:
-  //         return '+';
-  //       case SongRating.Dislike:
-  //         return '-';
-  //       default:
-  //         return '';
-  //     }
-  //   } else {
-  //     return '';
-  //   }
-  // }
+  rating(): string {
+    if (this.book) {
+      switch (this.book.rating) {
+        case BookRating.Like:
+          return '+';
+        case BookRating.Dislike:
+          return '-';
+        default:
+          return '';
+      }
+    } else {
+      return '';
+    }
+  }
 
-  // like() {
-  //   if (this.song) {
-  //     this.store.dispatch(
-  //       rateSong({
-  //         songId: this.song.id,
-  //         rating: SongRating.Like,
-  //       })
-  //     );
-  //   }
-  // }
+  like() {
+    if (this.book) {
+      this.store.dispatch(
+        rateBook({
+          bookId: this.book.id,
+          rating: BookRating.Like,
+        })
+      );
+    }
+  }
 
-  // dislike() {
-  //   if (this.song) {
-  //     this.store.dispatch(
-  //       rateSong({
-  //         songId: this.song.id,
-  //         rating: SongRating.Dislike,
-  //       })
-  //     );
-  //   }
-  // }
+  dislike() {
+    if (this.book) {
+      this.store.dispatch(
+        rateBook({
+          bookId: this.book.id,
+          rating: BookRating.Dislike,
+        })
+      );
+    }
+  }
 }
