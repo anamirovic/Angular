@@ -43,7 +43,6 @@ export class BookEditorComponent implements OnInit {
       "author": "Stephen King",
       "price": 12,
       "viewsCount": 950,
-      "link": "7GjOOyBoELw",
       "imageurl":"../../../assets/the_shining.jpg",
       rating:BookRating.None,
     };

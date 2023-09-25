@@ -5,7 +5,6 @@ export interface Book{
     price: number;
     viewsCount: number;
     rating: BookRating;
-    link: string;
     imageurl: string;
 
 }

@@ -17,7 +17,7 @@ export class BookstoreComponent implements OnInit {
   
   book$: Observable<Book[]>=of([]);
 
-  title="mnogo dobre knjige";
+  title="Online bookstore";
 
   constructor(private store: Store<AppState>){}
 

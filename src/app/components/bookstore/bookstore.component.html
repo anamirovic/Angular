@@ -1,5 +1,7 @@
-<h2>{{title}}</h2>
-<ul *ngFor="let book of book$ | async">
-    <!-- <li>{{book.author}} --{{book.title}}; {{book.viewsCount}}</li> -->
-    <app-book-thumb [book]="book" (onClick)="selectBook($event)"></app-book-thumb>
-</ul>
+<div class="bookstore">
+    <h2>{{title}}</h2>
+    <ul *ngFor="let book of book$ | async">
+        <!-- <li>{{book.author}} --{{book.title}}; {{book.viewsCount}}</li> -->
+        <app-book-thumb [book]="book" (onClick)="selectBook($event)"></app-book-thumb>
+    </ul>
+</div>
