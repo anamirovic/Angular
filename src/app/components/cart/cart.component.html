@@ -1,0 +1,32 @@
+<!-- 
+<div class="cart">
+    <h2>Your Cart</h2>
+    <ul>
+      <li *ngFor="let item of cartItems">
+        {{ item.book.title }} - Quantity: {{ item.quantity }}
+      </li>
+    </ul>
+    <p>Total Price: {{ calculateTotalPrice() | currency }}</p>
+    <button (click)="checkout()">Checkout</button>
+  </div>
+   -->
+
+   <!-- <div *ngFor="let item of cartItems">
+    {{ item.title }} - {{ item.price }}
+  </div>
+   -->
+  
+   <div class="cart">
+    <h2>Your Cart</h2>
+    <ul>
+      <li *ngFor="let bookId of cartItems$ | async">
+        {{ bookId }} <!-- Display the book ID, you can modify this to show book details -->
+        <button (click)="removeFromCart(bookId)">Remove</button> <!-- Button to remove the book -->
+      </li>
+    </ul>
+    <button (click)="placeOrder()">Place Order</button> <!-- Button to place an order -->
+  </div>
+  
+  
+
+  

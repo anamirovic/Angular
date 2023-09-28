@@ -3,9 +3,10 @@ export interface Book{
     title:string;
     author: string;
     price: number;
-    viewsCount: number;
+    available: number;
     rating: BookRating;
     imageurl: string;
+    purchased: boolean;
 
 }
 

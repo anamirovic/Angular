@@ -1,11 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import { Book, BookRating } from 'src/app/models/book';
-import { rateBook } from 'src/app/store/book.action';
-import { BooksState } from 'src/app/store/book.reducer';
-import { selectBooksFeature, selectSelectedBook } from 'src/app/store/book.selector';
+import { rateBook } from 'src/app/store/book/book.action';
+import * as CartActions from 'src/app/store/cart/cart.action';
+//import { BooksState } from 'src/app/store/book.reducer';
+import { selectBooksFeature, selectSelectedBook } from 'src/app/store/book/book.selector';
+import { addToCart } from 'src/app/store/cart/cart.action';
+
 
 @Component({
   selector: 'app-book-editor',
@@ -14,7 +17,9 @@ import { selectBooksFeature, selectSelectedBook } from 'src/app/store/book.selec
 })
 export class BookEditorComponent implements OnInit {
 
-  private _book: Book | null = null;
+  //private _book: Book | null = null;
+  @Input() _book: Book | null = null;
+  @Output() addToCartClicked: EventEmitter<number> = new EventEmitter<number>();
   
   //selectedBook:number=0;
 
@@ -42,8 +47,9 @@ export class BookEditorComponent implements OnInit {
       "title": "The Shining",
       "author": "Stephen King",
       "price": 12,
-      "viewsCount": 950,
+      "available": 950,
       "imageurl":"../../../assets/the_shining.jpg",
+      "purchased": false,
       rating:BookRating.None,
     };
   }
@@ -103,4 +109,37 @@ export class BookEditorComponent implements OnInit {
       );
     }
   }
+
+  addToCart() {
+    if (this.book) {
+      this.addToCartClicked.emit(this.book.id);
+    }
+  }
+
+
+//   addToCart(book: Book) {
+//     this.store.dispatch(addToCart({ book }));
+// }
+
+// order(book: Book) {
+//     this.store.dispatch(order({ book }));
+// }
+
+// cancelOrder(book: Book) {
+//     this.store.dispatch(cancelOrder({ book }));
+// }
+  // addToCart(book: Book) {
+  //   this.store.dispatch(addToCart({ book }));
+  // }
+
+
+  // addToCart() {
+  //   if (this.book) {
+  //     console.log('Adding to cart:', this.book);
+  //     this.store.dispatch(addToCart({ book: this.book }));
+  //   }
+  // }
+
+  
+  
 }

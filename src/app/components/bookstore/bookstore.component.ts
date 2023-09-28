@@ -4,9 +4,9 @@ import { Observable, of } from 'rxjs';
 import { AppState } from 'src/app/app.state';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books.service';
-import { loadBooks, selectBook } from 'src/app/store/book.action';
-import { BooksState } from 'src/app/store/book.reducer';
-import { selectBooksList } from 'src/app/store/book.selector';
+import { loadBooks, selectBook } from 'src/app/store/book/book.action';
+import { BooksState } from 'src/app/store/book/book.reducer';
+import { selectBooksList } from 'src/app/store/book/book.selector';
 
 @Component({
   selector: 'app-bookstore',

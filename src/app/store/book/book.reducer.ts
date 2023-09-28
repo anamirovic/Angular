@@ -1,5 +1,5 @@
 import { createReducer, on} from '@ngrx/store';
-import {Book} from '../models/book';
+import {Book} from 'src/app/models/book';
 import * as Actions from './book.action';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 
@@ -42,5 +42,42 @@ export const booksReducer = createReducer(
       state
     )
     )
-  
+
+    // on(Actions.addToCart, (state, { book }) =>
+    //     adapter.updateOne(
+    //         {
+    //             id: book.id,
+    //             changes: {
+    //                 available: book.available - 1,
+    //             },
+    //         },
+    //         state
+    //     )
+    // ),
+
+    // on(Actions.order, (state, { book }) =>
+    //     adapter.updateOne(
+    //         {
+    //             id: book.id,
+    //             changes: {
+    //                 available: book.available - 1,
+    //             },
+    //         },
+    //         state
+    //     )
+    // ),
+
+    // on(Actions.cancelOrder, (state, { book }) =>
+    //     adapter.updateOne(
+    //         {
+    //             id: book.id,
+    //             changes: {
+    //                 available: book.available + 1,
+    //             },
+    //         },
+    //         state
+    //     )
+    // )
 );
+  
+
