@@ -9,8 +9,6 @@
         <button (click)="dislike()">Dislike</button>
         <app-book-editor [book]="book" (addToCartClicked)="addToCart()"></app-book-editor>
 
-
-
         <span>Rating: {{rating()}}</span>
     </p>
     <img [src]="book.imageurl" alt="Slika knjige" class="book-image">

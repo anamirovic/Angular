@@ -117,29 +117,4 @@ export class BookEditorComponent implements OnInit {
   }
 
 
-//   addToCart(book: Book) {
-//     this.store.dispatch(addToCart({ book }));
-// }
-
-// order(book: Book) {
-//     this.store.dispatch(order({ book }));
-// }
-
-// cancelOrder(book: Book) {
-//     this.store.dispatch(cancelOrder({ book }));
-// }
-  // addToCart(book: Book) {
-  //   this.store.dispatch(addToCart({ book }));
-  // }
-
-
-  // addToCart() {
-  //   if (this.book) {
-  //     console.log('Adding to cart:', this.book);
-  //     this.store.dispatch(addToCart({ book: this.book }));
-  //   }
-  // }
-
-  
-  
 }
