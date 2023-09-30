@@ -2,14 +2,13 @@
     <span *ngIf="book">
     <h2>{{book.title}}</h2>
     <h4>{{book.author}}</h4>
-    <p>{{book.available}}</p>
-    <p>Selected book Id: {{book.id}}</p>
+    <p>Available: {{book.available}}</p>
+    <p>Price: {{book.price}}</p>
     <p>
-        <button (click)="like()">Like</button>
-        <button (click)="dislike()">Dislike</button>
-        <app-book-editor [book]="book" (addToCartClicked)="addToCart()"></app-book-editor>
-
-        <span>Rating: {{rating()}}</span>
+        <!-- <button (click)="like()">Like</button>
+        <button (click)="dislike()">Dislike</button> -->
+        <button (click)="addToCart(book)">Add to cart</button>
+        <!-- <span>Rating: {{rating()}}</span> -->
     </p>
     <img [src]="book.imageurl" alt="Slika knjige" class="book-image">
     

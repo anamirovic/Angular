@@ -2,8 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
-import { Book, BookRating } from 'src/app/models/book';
-import { rateBook } from 'src/app/store/book/book.action';
+import { Book } from 'src/app/models/book';
+//import { rateBook } from 'src/app/store/book/book.action';
 import * as CartActions from 'src/app/store/cart/cart.action';
 //import { BooksState } from 'src/app/store/book.reducer';
 import { selectBooksFeature, selectSelectedBook } from 'src/app/store/book/book.selector';
@@ -49,8 +49,6 @@ export class BookEditorComponent implements OnInit {
       "price": 12,
       "available": 950,
       "imageurl":"../../../assets/the_shining.jpg",
-      "purchased": false,
-      rating:BookRating.None,
     };
   }
 
@@ -73,47 +71,50 @@ export class BookEditorComponent implements OnInit {
 
   }
 
-  rating(): string {
-    if (this.book) {
-      switch (this.book.rating) {
-        case BookRating.Like:
-          return '+';
-        case BookRating.Dislike:
-          return '-';
-        default:
-          return '';
-      }
-    } else {
-      return '';
-    }
-  }
+  // rating(): string {
+  //   if (this.book) {
+  //     switch (this.book.rating) {
+  //       case BookRating.Like:
+  //         return '+';
+  //       case BookRating.Dislike:
+  //         return '-';
+  //       default:
+  //         return '';
+  //     }
+  //   } else {
+  //     return '';
+  //   }
+  // }
 
-  like() {
-    if (this.book) {
-      this.store.dispatch(
-        rateBook({
-          bookId: this.book.id,
-          rating: BookRating.Like,
-        })
-      );
-    }
-  }
+  // like() {
+  //   if (this.book) {
+  //     this.store.dispatch(
+  //       rateBook({
+  //         bookId: this.book.id,
+  //         rating: BookRating.Like,
+  //       })
+  //     );
+  //   }
+  // }
 
-  dislike() {
-    if (this.book) {
-      this.store.dispatch(
-        rateBook({
-          bookId: this.book.id,
-          rating: BookRating.Dislike,
-        })
-      );
-    }
-  }
+  // dislike() {
+  //   if (this.book) {
+  //     this.store.dispatch(
+  //       rateBook({
+  //         bookId: this.book.id,
+  //         rating: BookRating.Dislike,
+  //       })
+  //     );
+  //   }
+  // }
 
-  addToCart() {
-    if (this.book) {
-      this.addToCartClicked.emit(this.book.id);
-    }
+  // addToCart() {
+  //   if (this.book) {
+  //     this.addToCartClicked.emit(this.book.id);
+  //   }
+  // }
+  addToCart(book: Book) {
+    this.store.dispatch(addToCart({ book }));
   }
 
 

@@ -15,6 +15,7 @@ import { BooksEffects } from './store/book/book.effects';
 import { cartReducer } from './store/cart/cart.reducer';
 import { CartComponent } from './components/cart/cart.component';
 import { CartEffects } from './store/cart/cart.effects';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CartEffects } from './store/cart/cart.effects';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     StoreModule.forRoot<AppState>({
       books:booksReducer,

@@ -21,5 +21,5 @@ export interface LoginUser {
 
 export enum Role {
     User = 'user',
-    Admin = 'admin',
+    Vip = 'vip',
   }

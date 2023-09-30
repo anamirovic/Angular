@@ -1,5 +1,5 @@
 import{ createAction, props } from '@ngrx/store';
-import { Book, BookRating } from '../../models/book';
+import { Book} from '../../models/book';
 
 export const loadBooks=createAction('Load Books');
 export const loadBooksSuccess=createAction('Load Books Success',
@@ -10,10 +10,10 @@ export const selectBook=createAction(
     props<{bookId:number}>()
 );
 
-export const rateBook = createAction(
-    'Rate a book',
-     props<{ bookId: number; rating: BookRating }>()
-);
+// export const rateBook = createAction(
+//     'Rate a book',
+//      props<{ bookId: number; rating: BookRating }>()
+// );
 
 // // Dodaj akciju za dodavanje knjige u korpu
 // export const addToCart = createAction(

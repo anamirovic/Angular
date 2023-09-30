@@ -1,32 +1,44 @@
-<!-- 
 <div class="cart">
-    <h2>Your Cart</h2>
-    <ul>
-      <li *ngFor="let item of cartItems">
-        {{ item.book.title }} - Quantity: {{ item.quantity }}
-      </li>
-    </ul>
-    <p>Total Price: {{ calculateTotalPrice() | currency }}</p>
-    <button (click)="checkout()">Checkout</button>
+  <h2>Your cart</h2>
+  <div *ngIf="cartItems$ | async as cartItems; else cartItemsEmpty">
+   
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="item-details">
+        <h3>{{ item.title }}</h3>
+        <p>Author: {{ item.author }}</p>
+        <p>Price: {{ item.price }} din</p>
+      </div>
+      <div class="item-actions">
+        <button (click)="removeFromCart(item)">Remove</button>
+      </div>
+    </div>
   </div>
-   -->
+  <ng-template #cartItemsEmpty>
+    
+    <p>Your cart is empty.</p>
+  </ng-template>
+  <div class="cart-summary">
+    <p>Total items: {{ cartItemCount$ | async }}</p>
+    <p>Total price: {{ totalCartPrice$ | async }} din</p>
+   
+    <form (ngSubmit)="placeOrder1(username, password)">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required>
+      </div>
+      <button type="submit" id="orderButton">Order</button>
+    </form>
+    
 
-   <!-- <div *ngFor="let item of cartItems">
-    {{ item.title }} - {{ item.price }}
   </div>
-   -->
-  
-   <div class="cart">
-    <h2>Your Cart</h2>
-    <ul>
-      <li *ngFor="let bookId of cartItems$ | async">
-        {{ bookId }} <!-- Display the book ID, you can modify this to show book details -->
-        <button (click)="removeFromCart(bookId)">Remove</button> <!-- Button to remove the book -->
-      </li>
-    </ul>
-    <button (click)="placeOrder()">Place Order</button> <!-- Button to place an order -->
-  </div>
-  
-  
+</div>
+
+
+ 
+
 
   

@@ -30,17 +30,17 @@ export const booksReducer = createReducer(
     }),
     on(Actions.loadBooksSuccess,(state,{ books })=>
         adapter.setAll(books,state)
-    ),
-    on(Actions.rateBook, (state, { bookId, rating }) =>
-    adapter.updateOne(
-      {
-        id: bookId,
-        changes: {
-          rating,
-        },
-      },
-      state
     )
+    // on(Actions.rateBook, (state, { bookId, rating }) =>
+    // adapter.updateOne(
+    //   {
+    //     id: bookId,
+    //     changes: {
+    //       rating,
+    //     },
+    //   },
+    //   state
+    // )
     )
 
     // on(Actions.addToCart, (state, { book }) =>
@@ -78,6 +78,6 @@ export const booksReducer = createReducer(
     //         state
     //     )
     // )
-);
+
   
 

@@ -4,14 +4,13 @@ export interface Book{
     author: string;
     price: number;
     available: number;
-    rating: BookRating;
     imageurl: string;
-    purchased: boolean;
+    
 
 }
 
-export enum BookRating{
-    None,
-    Like,
-    Dislike,
-}
+// export enum BookRating{
+//     None,
+//     Like,
+//     Dislike,
+// }
