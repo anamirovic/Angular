@@ -84,8 +84,8 @@ export class CartComponent {
                   }
                 }).then((response) => response.json())
                   .then((userData) => {
-                    console.log(userData);
-                    const userId = userData.userId;
+                    console.log('user data is' + JSON.stringify(userData));
+                    const userId = userData.id;
                     
                     // Prosledite bookIdsString funkciji performOrder umesto pojedinačnih ID-jeva
                     this.cartService.placeOrder(bookIdsString, userId).subscribe((response) => {
